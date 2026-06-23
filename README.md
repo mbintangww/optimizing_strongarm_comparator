@@ -126,7 +126,7 @@ All sweeps use the Bayesian optimal sizing.
 
 ![Baseline waveform](results/char_strongarm_com/waveform_baseline.png)
 
-When CLK rises, the tail switch turns on and the internal nodes vx and vy begin to discharge. Since VINP > VINN, the VINN side discharges faster, causing vy to fall while vx is pulled back up by the cross coupled latch. Once vy crosses 0.9 V (VDD/2), the SR latch sets OUTP HIGH and OUTN LOW. When CLK falls, vx and vy reset to VDD but the SR latch holds the output, preserving the comparison result through the next precharge phase.
+When CLK rises, the tail switch turns on and the internal nodes vx and vy begin to discharge. Since VINP > VINN, the VINP side discharges faster, causing vy to fall while vx is pulled back up by the cross-coupled latch. Once vy crosses 0.9 V (VDD/2), the SR latch sets OUTP HIGH and OUTN LOW. When CLK falls, vx and vy reset to VDD but the SR latch holds the output, preserving the comparison result through the next precharge phase.
 
 ### Vdiff sweep (Vcm = 1.005 V)
 
