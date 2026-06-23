@@ -1,0 +1,17 @@
+{
+  "method": "Bayesian",
+  "topology": "StrongARM",
+  "n_evals": 80,
+  "n_valid": 69,
+  "elapsed_s": 964.73,
+  "best_fom": 1037.13,
+  "best_params": {
+    "WN_IN": 2.2863,
+    "WN_LAT": 0.7061,
+    "WP_LAT": 0.436,
+    "WN_TAIL": 6.5324,
+    "WP_RST": 0.5329
+  },
+  "best_t_regen_ps": 39.44,
+  "best_power_uW": 26.3
+}

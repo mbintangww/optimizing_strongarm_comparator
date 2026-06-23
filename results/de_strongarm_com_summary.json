@@ -1,0 +1,19 @@
+{
+  "method": "Differential Evolution",
+  "topology": "StrongARM",
+  "n_evals": 160,
+  "n_valid": 5,
+  "elapsed_s": 2943.52,
+  "best_fom": 1098.09,
+  "best_params": {
+    "WN_IN": 2.1508,
+    "WN_LAT": 1.0144,
+    "WP_LAT": 0.6442,
+    "WN_TAIL": 7.2218,
+    "WP_RST": 0.424
+  },
+  "best_t_regen_ps": 37.97,
+  "best_power_uW": 28.9,
+  "scipy_success": false,
+  "scipy_message": "Maximum number of iterations has been exceeded."
+}

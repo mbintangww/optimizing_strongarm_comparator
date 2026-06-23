@@ -1,0 +1,13 @@
+{
+  "topology": "3-stack StrongARM + 2-stage RS latch (strongarm_com.sch)",
+  "params": {
+    "WN_IN": 2.2863,
+    "WN_LAT": 0.7061,
+    "WP_LAT": 0.436,
+    "WN_TAIL": 6.5324,
+    "WP_RST": 0.5329
+  },
+  "t_regen_ps": 39.44218,
+  "power_uW": 26.294994000000003,
+  "fom": 1037.13
+}

@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# ngspice temporary netlists
+results/run_*.spice
+results/_tmp_*.spice
+*.out
+
+# Optimizer worker directories
+results/de_strongarm_com_workers/
+results/bayes_strongarm_com_worker/
+
+# Optimizer verbose logs (data captured in .csv and .json)
+results/de_strongarm_com_log.txt
+results/bayes_strongarm_com_log.txt
+
+# Characterization waveform data (large, plots kept)
+results/char_strongarm_com/waveform_baseline.txt
+results/char_strongarm_com/_tmp_*.spice
+
+# xschem
+*.bak
+untitled.sch
+
+# OS
+.DS_Store
+*:Zone.Identifier
