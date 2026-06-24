@@ -82,7 +82,7 @@ Two methods were compared, both minimizing **FoM = t_regen x Power**:
 
 - Population size: 8 x 5 = 40 per generation
 - Generations: 5
-- Total evaluations: ~160 ngspice runs
+- Total evaluations: ~200 ngspice runs
 - Runtime: ~49 min
 
 ### Bayesian Optimization (Optuna TPE)
@@ -124,7 +124,9 @@ All sweeps use the Bayesian optimal sizing.
 
 ### Waveform Analysis
 
-![Baseline waveform](results/char_strongarm_com/waveform_baseline.png)
+![CLK, vx, vy](results/char_strongarm_com/waveform_clk_vx_vy.png)
+
+![OUTP, OUTN](results/char_strongarm_com/waveform_outp_outn.png)
 
 When CLK rises, the tail switch turns on and the internal nodes vx and vy begin to discharge. Since VINP > VINN, the VINP side discharges faster, causing vy to fall while vx is pulled back up by the cross coupled latch. Once vy crosses 0.9 V (VDD/2), the SR latch sets OUTP HIGH and OUTN LOW. When CLK falls, vx and vy reset to VDD but the SR latch holds the output, preserving the comparison result through the next precharge phase.
 

@@ -166,27 +166,39 @@ def main():
         keys = list(data.keys())
         if len(keys) >= 2:
             t_ns = np.array(data[keys[0]]) * 1e9
-            lbl = {
-                "v(net2)":  "CLK",
-                "v(net4)":  "vx (stays HIGH)",
-                "v(net5)":  "vy - t_regen",
-                "v(net9)":  "OUTP",
-                "v(net11)": "OUTN",
-            }
+            title = (f"Vdiff={BASELINE_VDIFF*1000:.0f}mV, Vcm={BASELINE_VCM}V, "
+                     f"t_regen={t_nom:.1f}ps, P={p_nom:.1f}uW") if t_nom else "Default value waveform"
+
+            # Plot 1: CLK, vx, vy
             fig, ax = plt.subplots(figsize=(10, 4))
-            for k in keys[1:]:
-                ax.plot(t_ns, data[k], label=lbl.get(k, k))
+            for k, label in [("v(net2)", "CLK"), ("v(net4)", "vx"), ("v(net5)", "vy")]:
+                if k in data:
+                    ax.plot(t_ns, data[k], label=label)
             ax.axhline(0.9, color="gray", ls="--", lw=0.8, label="0.9V")
-            title = f"Baseline: Vdiff={BASELINE_VDIFF*1000:.0f}mV - t_regen={t_nom:.1f}ps, P={p_nom:.1f}uW" if t_nom else "Baseline waveform"
             ax.set_title(title)
             ax.set_xlabel("Time (ns)")
-            ax.set_ylabel("V")
+            ax.set_ylabel("Voltage (V)")
             ax.legend(fontsize=8)
             ax.grid(alpha=0.3)
-            png = os.path.join(RESULTS_DIR, "waveform_baseline.png")
-            plt.savefig(png, dpi=150, bbox_inches="tight")
+            png1 = os.path.join(RESULTS_DIR, "waveform_clk_vx_vy.png")
+            plt.savefig(png1, dpi=150, bbox_inches="tight")
             plt.close()
-            print(f"  -> {png}")
+            print(f"  -> {png1}")
+
+            # Plot 2: OUTP, OUTN
+            fig, ax = plt.subplots(figsize=(10, 4))
+            for k, label in [("v(net9)", "OUTP"), ("v(net11)", "OUTN")]:
+                if k in data:
+                    ax.plot(t_ns, data[k], label=label)
+            ax.set_title(title)
+            ax.set_xlabel("Time (ns)")
+            ax.set_ylabel("Voltage (V)")
+            ax.legend(fontsize=8)
+            ax.grid(alpha=0.3)
+            png2 = os.path.join(RESULTS_DIR, "waveform_outp_outn.png")
+            plt.savefig(png2, dpi=150, bbox_inches="tight")
+            plt.close()
+            print(f"  -> {png2}")
 
     # --- Test 2: Vdiff sweep ---
     print(f"\n[2/3] Vdiff sweep (Vcm={BASELINE_VCM}V) ...")
