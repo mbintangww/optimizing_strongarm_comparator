@@ -158,6 +158,16 @@ When CLK rises, the tail switch turns on and the internal nodes vx and vy begin 
 
 ![Vcm sweep](results/char_strongarm_com/vcm_sweep.png)
 
+### Worst case corner (Vdiff = 1 mV, Vcm = 0.7 V)
+
+| Parameter | Value |
+| --------- | ----- |
+| t_regen   | 347.6 ps |
+| Power     | 30.8 uW |
+| FoM       | 10700.8 ps.uW |
+
+Even at the worst case corner, t_regen = 347.6 ps is well below the 1 ns available before the clock falls again (500 MHz, half period = 1 ns), confirming correct operation down to 1 mV differential input.
+
 ---
 
 ## Author
